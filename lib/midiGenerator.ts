@@ -65,11 +65,11 @@ function generateMelody(
   if (melodyNotes.length === 0) return notes;
 
   // Note length palette by complexity
-  const rhythmPalette: number[][] = {
+  const rhythmPalette: number[] = ({
     simple:       [T.quarter, T.quarter, T.half, T.dottedQuarter, T.eighth],
     intermediate: [T.quarter, T.eighth, T.eighth, T.dottedQuarter, T.sixteenth, T.sixteenth, T.half],
     advanced:     [T.eighth, T.sixteenth, T.eighth, T.dottedEighth, T.sixteenth, T.quarter, T.eighth, T.eighth],
-  }[complexity];
+  } as Record<string, number[]>)[complexity];
 
   // Use a neutral velocity base (70) — mood info isn't forwarded here
   const velocityBase = 70;
