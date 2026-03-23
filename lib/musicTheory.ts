@@ -3,7 +3,7 @@
  * All intervals are semitone offsets from the root (0 = unison, 12 = octave up).
  */
 
-import { ChordDef, ChordType, InstrumentDef, ResolvedParams } from './types';
+import { ChordType } from './types';
 
 // ─── Scales ───────────────────────────────────────────────────────────────────
 

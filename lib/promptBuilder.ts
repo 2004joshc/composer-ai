@@ -8,7 +8,7 @@ import {
   MusicParams, ResolvedParams, ChordDef, InstrumentDef,
 } from './types';
 import {
-  SCALES, NOTE_NAMES, GENRE_PROFILES, getGenreProfile, getMoodModifiers,
+  SCALES, NOTE_NAMES, getGenreProfile, getMoodModifiers,
   GENRE_INSTRUMENTS, INSTRUMENT_MAP, scaleDegreeToMidi, makePRNG,
 } from './musicTheory';
 

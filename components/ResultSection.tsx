@@ -1,36 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { GenerateResponse, PlaybackNote } from '@/lib/types';
+import { GenerateResponse } from '@/lib/types';
 
 interface Props {
   result: GenerateResponse;
   onRegenerate: () => void;
   onReset: () => void;
-}
-
-// GM instrument name → Tone.js synth config
-function getSynthConfig(channel: number) {
-  // Channel 0 = melody, 1 = chords, 2 = bass
-  if (channel === 2) {
-    // Bass: sine wave, lower octave
-    return {
-      oscillator: { type: 'triangle' as const },
-      envelope: { attack: 0.02, decay: 0.3, sustain: 0.4, release: 0.8 },
-    };
-  }
-  if (channel === 1) {
-    // Chords: soft, slightly detuned
-    return {
-      oscillator: { type: 'sine' as const },
-      envelope: { attack: 0.05, decay: 0.5, sustain: 0.6, release: 1.2 },
-    };
-  }
-  // Melody: bright
-  return {
-    oscillator: { type: 'triangle' as const },
-    envelope: { attack: 0.01, decay: 0.1, sustain: 0.7, release: 0.5 },
-  };
 }
 
 function midiNoteToFreq(note: number): number {
